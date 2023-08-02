@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6d4cd5ad0a5474ab821e7f73a8cfa5, type: 3}
+  m_Name: 06_RV
+  m_EditorClassIdentifier: 
+  type: 5
+  componentName: RV
+  cases:
+  - enabled: 1
+    caseType: 0
+    caseName: 06_00_RV_Normal
+    displayName: 06_00_RV_Normal
+    caseID: 06_00
+  - enabled: 1
+    caseType: 0
+    caseName: 06_01_Hypoplastic_RV
+    displayName: 06_01_Hypoplastic_RV
+    caseID: 06_01
+  - enabled: 1
+    caseType: 0
+    caseName: 06_02_Inlet_VSD
+    displayName: 06_02_Inlet_VSD
+    caseID: 06_02
+  - enabled: 1
+    caseType: 0
+    caseName: 06_03_Muscular_VSD
+    displayName: 06_03_Muscular_VSD
+    caseID: 06_03
+  - enabled: 1
+    caseType: 0
+    caseName: 06_04_Perimembranous_VSD
+    displayName: 06_04_Perimembranous_VSD
+    caseID: 06_04
+  - enabled: 1
+    caseType: 0
+    caseName: 06_05_Apical_muscular_VSD
+    displayName: 06_05_Apical_muscular_VSD
+    caseID: 06_05
+  boneAdjustable: 0
+  transformAdjustable: 1

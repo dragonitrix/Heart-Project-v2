@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6d4cd5ad0a5474ab821e7f73a8cfa5, type: 3}
+  m_Name: 14_Aorta
+  m_EditorClassIdentifier: 
+  type: 13
+  componentName: Aorta
+  cases:
+  - enabled: 1
+    caseType: 0
+    caseName: 14_00_Aorta_Normal
+    displayName: 14_00_Aorta_Normal
+    caseID: 14_00
+  - enabled: 0
+    caseType: 0
+    caseName: 14_01_Aorta_AP_window
+    displayName: 14_01_Aorta_AP_window
+    caseID: 14_01
+  - enabled: 1
+    caseType: 0
+    caseName: 14_02_coarctation-of-aorta
+    displayName: 14_02_coarctation-of-aorta
+    caseID: 14_02
+  - enabled: 0
+    caseType: 0
+    caseName: 14_03_Hypoplastic_ascending_AO
+    displayName: 14_03_Hypoplastic_ascending_AO
+    caseID: 14_03
+  - enabled: 0
+    caseType: 0
+    caseName: 14_04_Aorta_Interrupted_aortic_arch_type_A
+    displayName: 14_04_Aorta_Interrupted_aortic_arch_type_A
+    caseID: 14_04
+  - enabled: 0
+    caseType: 0
+    caseName: 14_05_Aorta_Interrupted_aortic_arch_type_B
+    displayName: 14_05_Aorta_Interrupted_aortic_arch_type_B
+    caseID: 14_05
+  - enabled: 0
+    caseType: 0
+    caseName: 14_06_Aorta_Interrupted_aortic_arch_type_C
+    displayName: 14_06_Aorta_Interrupted_aortic_arch_type_C
+    caseID: 14_06
+  - enabled: 0
+    caseType: 0
+    caseName: 14_07_Aberrant-righ-t-subclavian-artery
+    displayName: 14_07_Aberrant-righ-t-subclavian-artery
+    caseID: 14_07
+  - enabled: 0
+    caseType: 0
+    caseName: 14_08_PDA
+    displayName: 14_08_PDA
+    caseID: 14_08
+  boneAdjustable: 1
+  transformAdjustable: 1

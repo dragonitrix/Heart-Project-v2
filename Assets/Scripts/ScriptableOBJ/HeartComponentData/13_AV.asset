@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6d4cd5ad0a5474ab821e7f73a8cfa5, type: 3}
+  m_Name: 13_AV
+  m_EditorClassIdentifier: 
+  type: 12
+  componentName: AV
+  cases:
+  - enabled: 1
+    caseType: 0
+    caseName: 13_00_AV_Normal
+    displayName: 13_00_AV_Normal
+    caseID: 13_00
+  - enabled: 1
+    caseType: 1
+    caseName: 13_01_AV_subaortic_ridge
+    displayName: 13_01_AV_subaortic_ridge
+    caseID: 13_01
+  - enabled: 1
+    caseType: 0
+    caseName: 13_02_AV_valvular_aortic_stenosis
+    displayName: 13_02_AV_valvular_aortic_stenosis
+    caseID: 13_02
+  boneAdjustable: 0
+  transformAdjustable: 1

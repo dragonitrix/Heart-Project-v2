@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6d4cd5ad0a5474ab821e7f73a8cfa5, type: 3}
+  m_Name: 02_SVC
+  m_EditorClassIdentifier: 
+  type: 1
+  componentName: SVC
+  cases:
+  - enabled: 1
+    caseType: 0
+    caseName: 02_00_RSVC
+    displayName: 02_00_RSVC
+    caseID: 02_00
+  - enabled: 1
+    caseType: 1
+    caseName: 02_01_Azygos_Vein_To_Svc
+    displayName: 02_01_Azygos_Vein_To_Svc
+    caseID: 02_01
+  - enabled: 0
+    caseType: 0
+    caseName: 02_02_Lt_SVC_To_LA
+    displayName: 02_02_Lt_SVC_To_LA
+    caseID: 02_02
+  - enabled: 1
+    caseType: 1
+    caseName: 02_03_Lt_SVC_To_CS
+    displayName: 02_03_Lt_SVC_To_CS
+    caseID: 02_03
+  boneAdjustable: 1
+  transformAdjustable: 1

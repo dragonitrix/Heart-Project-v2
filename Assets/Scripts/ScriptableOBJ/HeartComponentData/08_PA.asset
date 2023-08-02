@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6d4cd5ad0a5474ab821e7f73a8cfa5, type: 3}
+  m_Name: 08_PA
+  m_EditorClassIdentifier: 
+  type: 7
+  componentName: PA
+  cases:
+  - enabled: 1
+    caseType: 0
+    caseName: 08_00_PA_Normal
+    displayName: 08_00_PA_Normal
+    caseID: 08_00
+  - enabled: 1
+    caseType: 0
+    caseName: 08_01_PA_banding
+    displayName: 08_01_PA_banding
+    caseID: 08_01
+  - enabled: 1
+    caseType: 0
+    caseName: 08_02_RV_to_PA_conduit
+    displayName: 08_02_RV_to_PA_conduit
+    caseID: 08_02
+  - enabled: 1
+    caseType: 0
+    caseName: 08_03_hypoplastic_MPA
+    displayName: 08_03_hypoplastic_MPA
+    caseID: 08_03
+  - enabled: 1
+    caseType: 0
+    caseName: 08_04_No_MPA
+    displayName: 08_04_No_MPA
+    caseID: 08_04
+  - enabled: 1
+    caseType: 0
+    caseName: 08_05_Supravalvular_PS
+    displayName: 08_05_Supravalvular_PS
+    caseID: 08_05
+  boneAdjustable: 1
+  transformAdjustable: 1

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6d4cd5ad0a5474ab821e7f73a8cfa5, type: 3}
+  m_Name: 03_IVC
+  m_EditorClassIdentifier: 
+  type: 2
+  componentName: IVC
+  cases:
+  - enabled: 1
+    caseType: 0
+    caseName: 03_00_IVC
+    displayName: 03_00_IVC
+    caseID: 03_00
+  boneAdjustable: 1
+  transformAdjustable: 1

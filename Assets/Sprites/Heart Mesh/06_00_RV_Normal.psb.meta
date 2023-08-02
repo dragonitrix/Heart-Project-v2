@@ -1,0 +1,393 @@
+fileFormatVersion: 2
+guid: 23a31f5c6a90c7f4ea4bdc67c3f72cd0
+labels:
+- name
+- 06_05_Apical_muscular_VSD
+- spriteId
+- 0b074023df2fcd6419362a5e8135dd95
+- name
+- 06_04_Perimembranous_VSD
+- spriteId
+- 963f470585b74a042b24acead8869c3d
+- name
+- 06_03_Muscular_VSD
+- spriteId
+- 676dd596a238a4040a16a819d48f9c8e
+- name
+- 06_02_Inlet_VSD
+- spriteId
+- bc669aaaceba63847b37b842cb1e0341
+- name
+- 06_00_RV_Normal
+- spriteId
+- b72b6520ac7d40c4da15c52641cd368b
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: 06_00_RV_Normal
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 467
+      width: 718
+      height: 456
+    spriteID: b72b6520ac7d40c4da15c52641cd368b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2, y: 467}
+  - name: 06_02_Inlet_VSD
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 732
+      y: 4
+      width: 718
+      height: 312
+    spriteID: bc669aaaceba63847b37b842cb1e0341
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 730, y: 4}
+  - name: 06_03_Muscular_VSD
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 730
+      y: 931
+      width: 713
+      height: 456
+    spriteID: 676dd596a238a4040a16a819d48f9c8e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 723, y: 931}
+  - name: 06_04_Perimembranous_VSD
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 730
+      y: 467
+      width: 718
+      height: 456
+    spriteID: 963f470585b74a042b24acead8869c3d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 728, y: 467}
+  - name: 06_05_Apical_muscular_VSD
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 931
+      width: 718
+      height: 456
+    spriteID: 0b074023df2fcd6419362a5e8135dd95
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2, y: 931}
+  - name: 06_01_Hypoplastic_RV
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 720
+      height: 455
+    spriteID: 75ba32f33f16b8d4ca8945763c3de8e9
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 2048
+  importedTextureHeight: 2048
+  documentSize: {x: 720, y: 456}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories:
+    - name: 06_RV
+      labels:
+      - name: 06_05_Apical_muscular_VSD
+        spriteId: 0b074023df2fcd6419362a5e8135dd95
+      - name: 06_04_Perimembranous_VSD
+        spriteId: 963f470585b74a042b24acead8869c3d
+      - name: 06_03_Muscular_VSD
+        spriteId: 676dd596a238a4040a16a819d48f9c8e
+      - name: 06_02_Inlet_VSD
+        spriteId: bc669aaaceba63847b37b842cb1e0341
+      - name: 06_00_RV_Normal
+        spriteId: b72b6520ac7d40c4da15c52641cd368b
+      - name: 06_01_Hypoplastic_RV
+        spriteId: 75ba32f33f16b8d4ca8945763c3de8e9
+  textureActualWidth: 2048
+  textureActualHeight: 2048
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: 06_RV
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 6
+    mosaicPosition: {x: 0, y: 0}
+  - name: 06_00_RV_Normal
+    spriteName: 06_00_RV_Normal
+    isGroup: 0
+    parentIndex: 0
+    spriteID: b72b6520ac7d40c4da15c52641cd368b
+    layerID: 1
+    mosaicPosition: {x: 4, y: 467}
+  - name: 06_01_Hypoplastic_RV
+    spriteName: 06_01_Hypoplastic_RV
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 75ba32f33f16b8d4ca8945763c3de8e9
+    layerID: 8
+    mosaicPosition: {x: 4, y: 4}
+  - name: 06_02_Inlet_VSD
+    spriteName: 06_02_Inlet_VSD
+    isGroup: 0
+    parentIndex: 0
+    spriteID: bc669aaaceba63847b37b842cb1e0341
+    layerID: 2
+    mosaicPosition: {x: 732, y: 4}
+  - name: 06_03_Muscular_VSD
+    spriteName: 06_03_Muscular_VSD
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 676dd596a238a4040a16a819d48f9c8e
+    layerID: 3
+    mosaicPosition: {x: 730, y: 931}
+  - name: 06_04_Perimembranous_VSD
+    spriteName: 06_04_Perimembranous_VSD
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 963f470585b74a042b24acead8869c3d
+    layerID: 4
+    mosaicPosition: {x: 730, y: 467}
+  - name: 06_05_Apical_muscular_VSD
+    spriteName: 06_05_Apical_muscular_VSD
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 0b074023df2fcd6419362a5e8135dd95
+    layerID: 5
+    mosaicPosition: {x: 4, y: 931}
+  characterData:
+    bones: []
+    parts:
+    - spritePosition:
+        x: 2
+        y: 0
+        width: 718
+        height: 456
+      spriteId: b72b6520ac7d40c4da15c52641cd368b
+      bones: 
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 0
+        y: 0
+        width: 720
+        height: 455
+      spriteId: 75ba32f33f16b8d4ca8945763c3de8e9
+      bones: 
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 2
+        y: 0
+        width: 718
+        height: 312
+      spriteId: bc669aaaceba63847b37b842cb1e0341
+      bones: 
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 7
+        y: 0
+        width: 713
+        height: 456
+      spriteId: 676dd596a238a4040a16a819d48f9c8e
+      bones: 
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 2
+        y: 0
+        width: 718
+        height: 456
+      spriteId: 963f470585b74a042b24acead8869c3d
+      bones: 
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 2
+        y: 0
+        width: 718
+        height: 456
+      spriteId: 0b074023df2fcd6419362a5e8135dd95
+      bones: 
+      parentGroup: 0
+      order: 0
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: 06_00_RV_Normal Texture
+  prefabAssetName: 06_00_RV_Normal Prefab
+  spriteLibAssetName: 06_00_RV_Normal Sprite Lib
+  secondarySpriteTextures: []
