@@ -9,6 +9,11 @@ public class PosController : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     public Transform obj;
     RectTransform rectTransform;
 
+    public List<RectTransform> bindedTransforms = new List<RectTransform>();
+    List<Vector2> bindedTransformsPos = new List<Vector2>();
+
+    public CanvasGroup kill_button;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -45,6 +50,13 @@ public class PosController : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         objOriginPos = obj.position;
         startMousePos = Input.mousePosition;
 
+        bindedTransformsPos.Clear();
+
+        for (int i = 0; i < bindedTransforms.Count; i++)
+        {
+            bindedTransformsPos.Add(bindedTransforms[i].anchoredPosition - transformOriginPos);
+        }
+
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -58,6 +70,13 @@ public class PosController : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         var screenDelta = startMousePos - Input.mousePosition;
 
         rectTransform.anchoredPosition = transformOriginPos - (Vector2)screenDelta;
+
+
+        for (int i = 0; i < bindedTransforms.Count; i++)
+        {
+            bindedTransforms[i].anchoredPosition = rectTransform.anchoredPosition + bindedTransformsPos[i];
+        }
+
 
     }
     public void OnEndDrag(PointerEventData eventData)
@@ -77,5 +96,29 @@ public class PosController : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         var cam = Camera.main;
         var point = cam.ScreenToWorldPoint(new Vector3(pos.x, pos.y, cam.nearClipPlane));
         return point;
+    }
+
+    public void BindTransforms(List<RectTransform> transforms)
+    {
+        bindedTransforms.AddRange(transforms);
+    }
+
+    public void OnKillClicked()
+    {
+        Destroy(obj.gameObject);
+        foreach (Transform t in bindedTransforms)
+        {
+            Destroy(t.gameObject);
+        }
+
+        Destroy(gameObject);
+
+    }
+
+    public void EnableKillButton()
+    {
+        kill_button.alpha = 1;
+        kill_button.interactable = true;
+        kill_button.blocksRaycasts = true;
     }
 }

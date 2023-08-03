@@ -9,34 +9,34 @@ public class AdditiveCase : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void SetAdditiveCase(string id)
+    public virtual void SetAdditiveCase(string id)
     {
         var sprite = GameManager.instance.heartSprites[id];
         spriteRenderer.sprite = sprite;
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
 
     }
-    public Vector3 GetPivotPosition()
+    public virtual Vector3 GetPivotPosition()
     {
         return pivot ? pivot.position : transform.position;
     }
-    public virtual Transform GetControlledObj()
+    public virtual List<Transform> GetControlledObjs()
     {
-        return transform;
+        return new List<Transform> { transform };
     }
 }
