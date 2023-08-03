@@ -2,6 +2,7 @@ using FreeDraw;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -65,6 +66,13 @@ public class GameManager : MonoBehaviour
     [Header("Controller UI")]
     public RectTransform posController_rect;
     public RectTransform boneController_rect;
+    [Header("Export")]
+    public CanvasScreenShot canvasScreenShot;
+    public Canvas exportCanvas;
+    public RectTransform exportPanel;
+    public Button exportButton;
+    public RawImage exportedRawImage;
+
 
     [Serializable]
     public class HeartControllerList
@@ -101,6 +109,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //init export callback
+        CanvasScreenShot.OnPictureTaken = delegate { }; //clear old event
+        CanvasScreenShot.OnPictureTaken += OnPictureTaken;
+
         //Debug.Log("Fetch all cases");
         //
         //for (int i = 0; i < mainComponentList.heartComponentList.Count; i++)
@@ -624,5 +636,134 @@ public class GameManager : MonoBehaviour
         return screenPos;
     }
 
+    #region(export)
+    //public Texture2D ComplieRenderTexture()
+    //{
+    //    Texture2D tex = new Texture2D(renderTextures[0].width, renderTextures[0].height);
+    //    for (int i = 0; i < renderTextures.Count; i++)
+    //    {
+    //        var rt = renderTextures[i];
+    //        //RenderTexture.active = rt;
+    //
+    //        tex.CombineTexture2D(rt.GetRTPixels());
+    //
+    //        //tex = ExtensionMethods.CombineTexture2D(tex, rt.GetRTPixels());
+    //
+    //        //int startX = 0;
+    //        //int startY = 0;
+    //        //
+    //        //for (int x = startX; x < tex.width; x++)
+    //        //{
+    //        //
+    //        //    for (int y = startY; y < tex.height; y++)
+    //        //    {
+    //        //        Color bgColor = tex.GetPixel(x, y);
+    //        //        Color wmColor = rt.GetRTPixels().GetPixel(x, y);
+    //        //
+    //        //        Color final_color = Color.Lerp(bgColor, wmColor, wmColor.a / 1.0f);
+    //        //
+    //        //        tex.SetPixel(x, y, final_color);
+    //        //    }
+    //        //}
+    //        //
+    //        //tex.Apply();
+    //    }
+    //    return tex;
+    //}
+
+    //public Texture2D compliedRenderTextures;
+
+    public void OnTakeScreenShot()
+    {
+        //StartCoroutine(takeScreenShot());
+        canvasScreenShot.takeScreenShot(exportCanvas,new Vector2(1080,1080),SCREENSHOT_TYPE.IMAGE_AND_TEXT,false);
+    }
+
+    IEnumerator takeScreenShot()
+    {
+        yield return new WaitForEndOfFrame();
+
+        //var preferredSize = new Vector2(Screen.height, Screen.height);
+        var preferredSize = new Vector2(UIController.instance.mainCanvas.sizeDelta.y, UIController.instance.mainCanvas.sizeDelta.y);
+
+        Texture2D texture2D = exportedRawImage.texture.GetReadableTexture2d();
+
+        Texture2D croppedTexture = new Texture2D((int)preferredSize.x, (int)preferredSize.y);
+        croppedTexture.SetPixels(
+            texture2D.GetPixels(
+                0,
+                texture2D.height - (int)preferredSize.y,
+                (int)preferredSize.x,
+                (int)preferredSize.y
+                )
+            );
+        croppedTexture.Apply();
+        ExportImageToDevice(croppedTexture);
+        Destroy(croppedTexture);
+
+    }
+
+    void OnPictureTaken(Texture2D texture2D, byte[] pngArray)
+    {
+        var preferredSize = new Vector2(UIController.instance.mainCanvas.sizeDelta.y, UIController.instance.mainCanvas.sizeDelta.y);
+
+        //Texture2D rts = ComplieRenderTexture();
+
+        //var rts = renderTextures[0].GetRTPixels();
+
+        //texture2D.CombineTexture2D(rts);
+
+        //texture2D = compliedRenderTextures;
+
+        //texture2D = ExtensionMethods.CombineTexture2D(texture2D, rts);
+
+
+        Texture2D croppedTexture = new Texture2D((int)preferredSize.x, (int)preferredSize.y);
+        croppedTexture.SetPixels(
+            texture2D.GetPixels(
+                0,
+                texture2D.height - (int)preferredSize.y,
+                (int)preferredSize.x,
+                (int)preferredSize.y
+                )
+            );
+        croppedTexture.Apply();
+        ExportImageToDevice(croppedTexture);
+        Destroy(croppedTexture);
+
+
+        //exportCanvas.gameObject.SetActive(false);
+
+    }
+    void ExportImageToDevice(Texture2D texture2D)
+    {
+#if !UNITY_EDITOR && UNITY_WEBGL
+        //iphone
+        byte[] imageData = texture2D.EncodeToPNG();
+        DateTime dateTime = DateTime.Now;
+        var imageFilename = "export_" + dateTime.ToString("yyyyMMddHHmmss");
+        Debug.Log("Downloading..." + imageFilename);
+        ImageDownloader(System.Convert.ToBase64String(imageData), imageFilename);
+
+#else
+        string parentPath = Application.persistentDataPath + "/ExportData";
+        if (!Directory.Exists(parentPath))
+        {
+            Directory.CreateDirectory(parentPath);
+        }
+        //Convert to png
+        byte[] pngBytes = texture2D.EncodeToPNG();
+        //Do Something With the Image (Save)
+        DateTime dateTime = DateTime.Now;
+        var stamp = dateTime.ToString("yyyyMMddHHmmss");
+        string path = parentPath + "/" + stamp + ".png";
+        System.IO.File.WriteAllBytes(path, pngBytes);
+        Debug.Log(path);
+        // To avoid memory leaks
+        Destroy(texture2D);
+#endif
+    }
+
+    #endregion
 
 }

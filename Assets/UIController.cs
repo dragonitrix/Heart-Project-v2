@@ -24,7 +24,7 @@ public class UIController : MonoBehaviour
 
     }
 
-    RectTransform mainCanvas;
+    public RectTransform mainCanvas;
 
     [Header("Control UI")]
     public Button posControl_button;
