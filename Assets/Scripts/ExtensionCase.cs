@@ -13,6 +13,8 @@ public class ExtensionCase : AdditiveCase
 
     public List<Transform> controlledObjsOverried = new List<Transform>();
 
+    public List<Transform> bones = new List<Transform>();
+
     protected override void Awake()
     {
         spriteLibrary = GetComponent<SpriteLibrary>();
@@ -62,5 +64,9 @@ public class ExtensionCase : AdditiveCase
         {
             return new List<Transform> { transform };
         }
+    }
+    public List<Transform> GetBones()
+    {
+        return bones;
     }
 }

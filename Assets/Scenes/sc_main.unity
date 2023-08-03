@@ -2828,6 +2828,11 @@ MonoBehaviour:
   exportPanel: {fileID: 0}
   exportButton: {fileID: 0}
   exportedRawImage: {fileID: 0}
+  rule: 0
+  rule_02_flipLists:
+  - {fileID: 4008802}
+  - {fileID: 653698716}
+  - {fileID: 1331753930}
   selectedHComponentIndex: -1
   isPosControlling: 0
   isBoneControlling: 0
@@ -4545,7 +4550,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9b0438ec2dbbd2a4cbe4bf9d338dddf8, type: 2}
     - target: {fileID: -4900035901874633181, guid: 5de6eeb6cc9a52e44a190ec1813fcddd, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -3497408159797871846, guid: 5de6eeb6cc9a52e44a190ec1813fcddd, type: 3}
       propertyPath: m_Layer
@@ -4557,11 +4562,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -585912146619810822, guid: 5de6eeb6cc9a52e44a190ec1813fcddd, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -525781543096984447, guid: 5de6eeb6cc9a52e44a190ec1813fcddd, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1226261551214018652, guid: 5de6eeb6cc9a52e44a190ec1813fcddd, type: 3}
       propertyPath: m_RootOrder
@@ -4569,7 +4574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1307108798978827140, guid: 5de6eeb6cc9a52e44a190ec1813fcddd, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1548579241078676899, guid: 5de6eeb6cc9a52e44a190ec1813fcddd, type: 3}
       propertyPath: m_labelHash
@@ -5270,7 +5275,7 @@ Transform:
   m_Children:
   - {fileID: 1913610557}
   m_Father: {fileID: 1567252414}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1689486888
 MonoBehaviour:

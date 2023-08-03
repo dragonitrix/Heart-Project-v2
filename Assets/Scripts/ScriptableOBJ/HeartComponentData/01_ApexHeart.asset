@@ -20,5 +20,15 @@ MonoBehaviour:
     caseName: 01_00_Normal_Heart
     displayName: 01_00_Normal_Heart
     caseID: 01_00
+  - enabled: 1
+    caseType: 0
+    caseName: 01_01_Dextrocardia_1
+    displayName: 01_01_Dextrocardia_1
+    caseID: 01_01
+  - enabled: 1
+    caseType: 0
+    caseName: 01_02_Dextrocardia_2
+    displayName: 01_02_Dextrocardia_2
+    caseID: 01_02
   boneAdjustable: 0
   transformAdjustable: 0

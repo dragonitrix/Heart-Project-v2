@@ -73,6 +73,26 @@ public class GameManager : MonoBehaviour
     public Button exportButton;
     public RawImage exportedRawImage;
 
+    public RULE rule = RULE._00_NormalHeart;
+
+    public enum RULE
+    {
+        _00_NormalHeart, _01_Dextrocardia_1, _02_Dextrocardia_2
+    }
+
+    [Header("RULE1_portion rotate")]
+    public List<Transform> rule_01_flipLists = new List<Transform>();
+
+    [Header("RULE2_flip")]
+    public List<Transform> rule_02_flipLists = new List<Transform>();
+
+    [Serializable]
+    public class Rule_01_position
+    {
+        public Transform obj;
+        public Transform originTransform;
+        public Transform ruleTransform;
+    }
 
     [Serializable]
     public class HeartControllerList
@@ -171,23 +191,70 @@ public class GameManager : MonoBehaviour
         {
             SetAbnormalCase(i, -1);
         }
-
     }
 
     // Update is called once per frame
     void Update()
     {
+
     }
+
+    public void SetRule(RULE rule)
+    {
+        //Debug.Log("set rule");
+
+        //exit
+        switch (this.rule)
+        {
+            case RULE._00_NormalHeart:
+                break;
+            case RULE._01_Dextrocardia_1:
+                break;
+            case RULE._02_Dextrocardia_2:
+                foreach (var t in rule_02_flipLists)
+                {
+                    t.localScale = new Vector3(Mathf.Abs(t.localScale.x), t.localScale.y, t.localScale.z);
+                }
+                break;
+            default:
+                break;
+        }
+        this.rule = rule;
+        //enter
+        switch (this.rule)
+        {
+            case RULE._00_NormalHeart:
+                break;
+            case RULE._01_Dextrocardia_1:
+
+                break;
+            case RULE._02_Dextrocardia_2:
+                foreach (var t in rule_02_flipLists)
+                {
+                    t.localScale = new Vector3(t.localScale.x * -1, t.localScale.y, t.localScale.z);
+                }
+
+                break;
+            default:
+                break;
+        }
+    }
+
     public void OnSetAbnormalCaseClicked(HCaseButton btn, int index)
     {
-        if (selectedHComponentIndex == 99)
+        switch (selectedHComponentIndex)
         {
-            CreateExtension(index);
+            case 0:
+                SetRule((RULE)index);
+                break;
+            case 99:
+                CreateExtension(index);
+                break;
+            default:
+                SetAbnormalCase(selectedHComponentIndex, index, true);
+                break;
         }
-        else
-        {
-            SetAbnormalCase(selectedHComponentIndex, index, true);
-        }
+
     }
 
     public void SetAbnormalCase(int hIndex, int index, bool setUI = false)
@@ -522,57 +589,59 @@ public class GameManager : MonoBehaviour
     {
         StopAllUIControl();
 
-        if (selectedHComponentIndex == 99)
+        switch (selectedHComponentIndex)
         {
-            for (int i = 0; i < extensionCases.Count; i++)
-            {
+            case 99:
+                for (int i = 0; i < extensionCases.Count; i++)
+                {
 
-                var extensionCase = extensionCases[i];
+                    var extensionCase = extensionCases[i];
 
-                var mainControlClone = Instantiate(posController_prefab, posController_rect);
-                var mainPosControl = mainControlClone.GetComponent<PosController>();
-                mainPosControl.GetComponent<RectTransform>().anchoredPosition = WorldToCanvasSpace(extensionCase.GetPivotPosition());
-                mainPosControl.SetPosController(extensionCase.GetControlledObjs()[0]);
+                    var mainControlClone = Instantiate(posController_prefab, posController_rect);
+                    var mainPosControl = mainControlClone.GetComponent<PosController>();
+                    mainPosControl.GetComponent<RectTransform>().anchoredPosition = WorldToCanvasSpace(extensionCase.GetPivotPosition());
+                    mainPosControl.SetPosController(extensionCase.GetControlledObjs()[0]);
 
-                var sub1Clone = Instantiate(posController_prefab, posController_rect);
-                var sub1Control = sub1Clone.GetComponent<PosController>();
-                sub1Control.GetComponent<RectTransform>().anchoredPosition = WorldToCanvasSpace(extensionCase.GetControlledObjs()[1].position);
-                sub1Control.SetPosController(extensionCase.GetControlledObjs()[1]);
+                    var sub1Clone = Instantiate(posController_prefab, posController_rect);
+                    var sub1Control = sub1Clone.GetComponent<PosController>();
+                    sub1Control.GetComponent<RectTransform>().anchoredPosition = WorldToCanvasSpace(extensionCase.GetControlledObjs()[1].position);
+                    sub1Control.SetPosController(extensionCase.GetControlledObjs()[1]);
 
-                var sub2Clone = Instantiate(posController_prefab, posController_rect);
-                var sub2Control = sub2Clone.GetComponent<PosController>();
-                sub2Control.GetComponent<RectTransform>().anchoredPosition = WorldToCanvasSpace(extensionCase.GetControlledObjs()[2].position);
-                sub2Control.SetPosController(extensionCase.GetControlledObjs()[2]);
+                    var sub2Clone = Instantiate(posController_prefab, posController_rect);
+                    var sub2Control = sub2Clone.GetComponent<PosController>();
+                    sub2Control.GetComponent<RectTransform>().anchoredPosition = WorldToCanvasSpace(extensionCase.GetControlledObjs()[2].position);
+                    sub2Control.SetPosController(extensionCase.GetControlledObjs()[2]);
 
-                mainPosControl.BindTransforms(new List<RectTransform> { sub1Control.GetComponent<RectTransform>(), sub2Control.GetComponent<RectTransform>() });
-                mainPosControl.EnableKillButton();
-            }
-        }
-        else
-        {
-            var currentHComponent = GetCurrentControllers();
-            var mainComponent = currentHComponent[0];
+                    mainPosControl.BindTransforms(new List<RectTransform> { sub1Control.GetComponent<RectTransform>(), sub2Control.GetComponent<RectTransform>() });
+                    mainPosControl.EnableKillButton();
+                }
+                break;
+            default:
 
-            if (!mainComponent.enablePosControl) { return; }
+                var currentHComponent = GetCurrentControllers();
+                var mainComponent = currentHComponent[0];
 
-            var clone = Instantiate(posController_prefab, posController_rect);
-            var posControl = clone.GetComponent<PosController>();
+                if (!mainComponent.enablePosControl) { return; }
 
-            posControl.GetComponent<RectTransform>().anchoredPosition = WorldToCanvasSpace(mainComponent.GetPivotPosition());
-            posControl.SetPosController(mainComponent.GetControlledObj());
+                var clone = Instantiate(posController_prefab, posController_rect);
+                var posControl = clone.GetComponent<PosController>();
 
-            // set controller for additive case
+                posControl.GetComponent<RectTransform>().anchoredPosition = WorldToCanvasSpace(mainComponent.GetPivotPosition());
+                posControl.SetPosController(mainComponent.GetControlledObj());
 
-            for (int i = 0; i < additiveCaseGroups[selectedHComponentIndex].transform.childCount; i++)
-            {
-                var additiveTransform = additiveCaseGroups[selectedHComponentIndex].transform.GetChild(i);
-                var additiveCaseController = additiveTransform.GetComponent<AdditiveCase>();
-                var additiveClone = Instantiate(posController_prefab, posController_rect);
-                var additivePosControl = additiveClone.GetComponent<PosController>();
+                // set controller for additive case
 
-                additivePosControl.GetComponent<RectTransform>().anchoredPosition = WorldToCanvasSpace(additiveCaseController.GetPivotPosition());
-                additivePosControl.SetPosController(additiveCaseController.GetControlledObjs()[0]);
-            }
+                for (int i = 0; i < additiveCaseGroups[selectedHComponentIndex].transform.childCount; i++)
+                {
+                    var additiveTransform = additiveCaseGroups[selectedHComponentIndex].transform.GetChild(i);
+                    var additiveCaseController = additiveTransform.GetComponent<AdditiveCase>();
+                    var additiveClone = Instantiate(posController_prefab, posController_rect);
+                    var additivePosControl = additiveClone.GetComponent<PosController>();
+
+                    additivePosControl.GetComponent<RectTransform>().anchoredPosition = WorldToCanvasSpace(additiveCaseController.GetPivotPosition());
+                    additivePosControl.SetPosController(additiveCaseController.GetControlledObjs()[0]);
+                }
+                break;
         }
         isPosControlling = true;
 
@@ -582,23 +651,30 @@ public class GameManager : MonoBehaviour
     public void InitBoneControl()
     {
         StopAllUIControl();
-        var currentHComponent = GetCurrentControllers();
-        var mainComponent = currentHComponent[0];
 
-        if (!mainComponent.enableBoneControl) { return; }
-
-        isBoneControlling = true;
-
-
-        var bones = mainComponent.GetBones();
-
-        foreach (var bone in bones)
+        switch (selectedHComponentIndex)
         {
-            var clone = Instantiate(boneController_prefab, boneController_rect);
-            var boneControl = clone.GetComponent<BoneController>();
-            //boneControl.GetComponent<RectTransform>().anchoredPosition = WorldToCanvasSpace(mainComponent.GetPivotPosition());
-            boneControl.SetBone(bone);
+            case 99:
+                break;
+            default:
+
+                var currentHComponent = GetCurrentControllers();
+                var mainComponent = currentHComponent[0];
+
+                if (!mainComponent.enableBoneControl) { return; }
+
+                var bones = mainComponent.GetBones();
+
+                foreach (var bone in bones)
+                {
+                    var clone = Instantiate(boneController_prefab, boneController_rect);
+                    var boneControl = clone.GetComponent<BoneController>();
+                    //boneControl.GetComponent<RectTransform>().anchoredPosition = WorldToCanvasSpace(mainComponent.GetPivotPosition());
+                    boneControl.SetBone(bone);
+                }
+                break;
         }
+        isBoneControlling = true;
     }
 
     public void StopAllUIControl()
@@ -676,7 +752,7 @@ public class GameManager : MonoBehaviour
     public void OnTakeScreenShot()
     {
         //StartCoroutine(takeScreenShot());
-        canvasScreenShot.takeScreenShot(exportCanvas,new Vector2(1080,1080),SCREENSHOT_TYPE.IMAGE_AND_TEXT,false);
+        canvasScreenShot.takeScreenShot(exportCanvas, new Vector2(1080, 1080), SCREENSHOT_TYPE.IMAGE_AND_TEXT, false);
     }
 
     IEnumerator takeScreenShot()
